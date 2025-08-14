@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <!--
+        This meta tag performs the redirect.
+        - content="0.5; url=https://www.example.com"
+          - "0.5" means the redirect happens after 0.5 seconds.
+          - "url=" specifies the destination URL.
+          - Replace "https://www.example.com" with the actual URL you want to redirect to.
+    -->
+    <meta http-equiv="refresh" content="0.5; url=https://www.example.com">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔗</text></svg>">
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 5em; /* Increased font size significantly */
+            text-transform: uppercase; /* Added for more impact */
+            letter-spacing: 5px; /* Added for more impact */
+            animation: bounce 0.8s infinite alternate; /* Added a subtle animation */
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .small-text {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 30px;
+        }
+
+        /* Keyframes for bounce animation */
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WRITE HELLO IN THE TEXT BOX</h1> <!-- Changed text to "WRITE HELLO IN THE TEXT BOX" -->
+        <p>If you are not redirected automatically, <br> please click the link below to go to the new page:</p>
+        <p><a id="redirectLink" href="https://www.example.com">Click here to continue</a></p>
+        <p class="small-text">This page is designed to redirect visitors automatically.</p>
+    </div>
+
+    <script>
+        // Get the redirect URL from the meta tag to ensure consistency
+        const metaTag = document.querySelector('meta[http-equiv="refresh"]');
+        if (metaTag) {
+            const content = metaTag.getAttribute('content');
+            const urlMatch = content.match(/url=(.*)/);
+            if (urlMatch && urlMatch[1]) {
+                const redirectUrl = urlMatch[1];
+                const redirectLink = document.getElementById('redirectLink');
+                if (redirectLink) {
+                    redirectLink.href = redirectUrl;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
