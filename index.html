@@ -76,7 +76,7 @@
         // The maximum number of redirects within the loop before breaking.
         // A value of 4 means 2 full round trips (e.g., test -> tigger -> test -> tigger -> test)
         // On the 5th load (count = 5), it will break the loop.
-        const maxRedirectsInLoop = 4;
+        const maxRedirectsInLoop = 20;
 
         // --- Core Redirection Logic ---
         document.addEventListener('DOMContentLoaded', () => {
